@@ -9,7 +9,10 @@ import Button from 'react-bootstrap/Button';
 import Listagem from './components/listagem';
 import './App.css';
 
+
+
 function App() {
+
   return (
      <div className="App">
       <Navbar collapseOnSelect expand="lg" bg="danger" data-bs-theme="dark">
@@ -50,5 +53,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App

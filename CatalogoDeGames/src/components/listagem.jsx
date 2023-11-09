@@ -8,7 +8,7 @@ import '../GamesGrid.css';
 export default function Listagem(){
     const [lista , setLista] = useState ([]);
     useEffect(() => {
-        axios.get('http://18.230.17.49:3333').then(resposta => setLista(resposta.data));
+        axios.get('http://localhost:3000').then(resposta => setLista(resposta.data));
     },[]);
     return(
         <div className="game-card">
