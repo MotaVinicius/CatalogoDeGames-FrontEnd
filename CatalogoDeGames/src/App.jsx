@@ -8,6 +8,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Listagem from './components/listagem';
 import './App.css';
+import Lancamentos from './components/lancamento';
+import FullListagem from './components/fullListagem';
 
 
 
@@ -24,8 +26,11 @@ function App() {
             <LinkContainer to="/listar">
                 <Nav.Link>Em alta</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/adicionar">
-                <Nav.Link>Catalogo</Nav.Link>
+            <LinkContainer to="/lancamento">
+                <Nav.Link>Lançamento</Nav.Link>
+            </LinkContainer> 
+            <LinkContainer to="/fullListagem">
+                <Nav.Link>Catalogo Completo</Nav.Link>
             </LinkContainer>            
           </Nav>
           <Form className="d-flex">
@@ -46,6 +51,10 @@ function App() {
         <Routes>
             <Route path="/" element={<Listagem /> }></Route>
             <Route path="/listar" element={<Listagem /> }></Route>
+            <Route path="/lancamento" element={<Lancamentos /> }></Route>
+            <Route path="/fullListagem" element={<FullListagem /> }></Route>
+
+
         </Routes>
       </Row>
     </Container>

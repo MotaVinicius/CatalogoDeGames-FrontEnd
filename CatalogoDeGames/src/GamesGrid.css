@@ -4,3 +4,15 @@
     justify-content: space-evenly;
     margin-top: 5rem;
 }
+.page{
+    color: white;
+    min-width: 98%;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.page h2{
+    font-size: 2.2rem;
+}
