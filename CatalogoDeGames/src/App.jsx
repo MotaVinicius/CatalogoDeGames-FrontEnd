@@ -46,7 +46,7 @@ function App() {
       </Container>
     </Navbar>
 
-    <Container>
+    <Container className='conteudo'>
       <Row className="justify-content-md-center">
         <Routes>
             <Route path="/" element={<Listagem /> }></Route>
@@ -58,7 +58,10 @@ function App() {
         </Routes>
       </Row>
     </Container>
-
+    <div className="rodape">
+     <p>&copy; Todos os direitos reservados.</p> 
+    </div>
+    .buttontop
     </div>
   )
 }

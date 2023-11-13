@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .game-card{
     display: flex;
     flex-wrap: wrap;
@@ -6,7 +11,7 @@
 }
 .page{
     color: white;
-    min-width: 98%;
+    min-width: 98vw;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
@@ -16,3 +21,14 @@
 .page h2{
     font-size: 2.2rem;
 }
+.conteudo{
+    min-height: 100vh;
+  }
+  .rodape{
+    min-width: 98vw;
+    background-color: #df2d3f;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: -40px;
+  }

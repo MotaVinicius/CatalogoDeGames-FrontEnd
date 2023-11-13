@@ -12,7 +12,7 @@ export default function FullListagem(){
     },[]);
     return(
         <div className="page">
-            <h2>Melhores Avaliados</h2>
+            <h2>Catalogo Completo</h2>
             <div className="game-card">
                     {fulllista.map(itemfullLista => {
                         return(
