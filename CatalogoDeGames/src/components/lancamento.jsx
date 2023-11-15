@@ -16,19 +16,32 @@ export default function Lancamentos(){
             <div className="game-card">
                     {lancamento.map(itemLancamento => {
                         return(
-                            <Card style={{ width: '18rem', height:'30rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
+                            <Card style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
                                 <Card.Img style={{height:'20rem' }} variant="top" src={itemLancamento.image_url} alt={itemLancamento.name} key={itemLancamento._id} />
-                                <Card.Body>
-                                    <div style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column'}}>
-                                        <Card.Title style={{}}>{itemLancamento.name}</Card.Title>
-                                        <Card.Subtitle style={{}}>{itemLancamento.genero}</Card.Subtitle>
-                                        <Button style={{marginTop:'1.5em'}} variant="danger">Detalhes</Button>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        )
-                    })}
-            </div>
-        </div>
-    )
+                                <Card.Body  style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column', height:'12rem'}}>
+                        
+                        <Card.Title style={{}}>{itemLancamento.name}</Card.Title>
+                        <Card.Subtitle style={{}}>{itemLancamento.genero}</Card.Subtitle>
+                        <Card.Text style={{}}>{itemLancamento.ratings === 10 ? ( 
+                        <>
+                        <i class="bi bi-star-fill" style={{color: 'gold'}} ></i> {itemLancamento.ratings}
+                        </> ) : (
+                            <>
+                            <i class="bi bi-star-half" style={{color: 'gold'}} ></i> {itemLancamento.ratings}
+                            </>
+                        )}
+                        </Card.Text>
+                        <div className="botoes">
+                        <Button style={{}} variant="danger">Detalhes</Button>
+                        <Button style={{}} variant="primary">Adicionar a minha lista</Button>
+                        </div>
+                        
+            
+                </Card.Body>
+            </Card>
+        )
+    })}
+</div>
+</div>
+)
 }

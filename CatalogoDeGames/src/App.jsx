@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 import { Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -17,7 +18,7 @@ function App() {
 
   return (
      <div className="App">
-      <Navbar collapseOnSelect expand="lg" bg="danger" data-bs-theme="dark">
+      <Navbar collapseOnSelect expand="lg" bg="danger" data-bs-theme="dark" id="topo">
       <Container>
         <Navbar.Brand href="#">Gamezada.gg</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -61,7 +62,11 @@ function App() {
     <div className="rodape">
      <p>&copy; Todos os direitos reservados.</p> 
     </div>
-    .buttontop
+    <a href="#topo" title="Retornar ao topo">
+      <div className='botaoTopo' >
+        <i class="bi bi-arrow-up-circle-fill"></i>
+      </div>
+    </a>
     </div>
   )
 }

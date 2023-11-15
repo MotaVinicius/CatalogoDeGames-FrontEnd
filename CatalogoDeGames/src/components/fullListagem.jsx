@@ -16,14 +16,27 @@ export default function FullListagem(){
             <div className="game-card">
                     {fulllista.map(itemfullLista => {
                         return(
-                            <Card style={{ width: '18rem', height:'30rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
+                            <Card style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
                                 <Card.Img style={{height:'20rem' }} variant="top" src={itemfullLista.image_url} alt={itemfullLista.name} key={itemfullLista._id} />
-                                <Card.Body>
-                                    <div style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column'}}>
+                                <Card.Body  style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column', height:'12rem'}}>
+                        
                                         <Card.Title style={{}}>{itemfullLista.name}</Card.Title>
                                         <Card.Subtitle style={{}}>{itemfullLista.genero}</Card.Subtitle>
-                                        <Button style={{marginTop:'1.5em'}} variant="danger">Detalhes</Button>
-                                    </div>
+                                        <Card.Text style={{}}>{itemfullLista.ratings === 10 ? ( 
+                                        <>
+                                        <i class="bi bi-star-fill" style={{color: 'gold'}} ></i> {itemfullLista.ratings}
+                                        </> ) : (
+                                            <>
+                                            <i class="bi bi-star-half" style={{color: 'gold'}} ></i> {itemfullLista.ratings}
+                                            </>
+                                        )}
+                                        </Card.Text>
+                                        <div className="botoes">
+                                        <Button style={{}} variant="danger">Detalhes</Button>
+                                        <Button style={{}} variant="primary">Adicionar a minha lista</Button>
+                                        </div>
+                                        
+                            
                                 </Card.Body>
                             </Card>
                         )
