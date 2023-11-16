@@ -16,7 +16,7 @@ export default function FullListagem(){
             <div className="game-card">
                     {fulllista.map(itemfullLista => {
                         return(
-                            <Card style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
+                            <Card id='fullCard' style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
                                 <Card.Img style={{height:'20rem' }} variant="top" src={itemfullLista.image_url} alt={itemfullLista.name} key={itemfullLista._id} />
                                 <Card.Body  style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column', height:'12rem'}}>
                         

@@ -10,6 +10,30 @@
     margin-bottom: 5rem;
     justify-content: center;
 }
+#fullCard{
+  transform: scale(1);
+  animation: zoomremove 0.3s ease-in-out;
+}
+#fullCard:hover{
+   animation: zoom 0.3s ease-in-out;
+   animation-fill-mode: forwards;
+}
+@keyframes zoom {
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.05);
+  }
+}
+@keyframes zoomremove {
+  0%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
 .page{
     color: white;
     min-width: 98vw;
@@ -38,4 +62,5 @@
   }
   Button{
     width: 100%;
+    margin-top: 2px;
   }

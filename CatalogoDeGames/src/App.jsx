@@ -11,6 +11,7 @@ import Listagem from './components/listagem';
 import './App.css';
 import Lancamentos from './components/lancamento';
 import FullListagem from './components/fullListagem';
+import Detalhes from './components/detalhes';
 
 
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/listar" element={<Listagem /> }></Route>
             <Route path="/lancamento" element={<Lancamentos /> }></Route>
             <Route path="/fullListagem" element={<FullListagem /> }></Route>
+            <Route path="/detalhes/:id" element={<Detalhes />}></Route>
 
 
         </Routes>
