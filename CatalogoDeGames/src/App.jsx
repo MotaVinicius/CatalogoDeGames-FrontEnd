@@ -12,10 +12,14 @@ import './App.css';
 import Lancamentos from './components/lancamento';
 import FullListagem from './components/fullListagem';
 import Detalhes from './components/detalhes';
+import Login from './components/login';
 
 
 
 function App() {
+  const token = localStorage.getItem("token");
+  if(!token)
+    return <Login />
 
   return (
      <div className="App">

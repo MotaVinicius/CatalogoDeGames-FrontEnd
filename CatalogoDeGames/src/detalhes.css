@@ -17,14 +17,35 @@
     gap: 5vw;
 }
 #image{
-    width: 18vw;
+    width: 19vw;
     background-color: rgba(0, 0, 0, 0.376);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    height: 58vh;
+}
+#image img{
+    width: 14.5vw;
+    height: 37vh;
+    border-radius: 3px;
+    margin-bottom: 3vh;
+}
+#image h3{
+    font-size: 1.3rem;
+    display: flex;
+    margin-bottom: -1vh;
+}
+#image h3 i{
+    margin-left: .7vw;
+}
+.valor{
+    margin-left: .5vw;
+    color: rgb(228, 94, 94);
+}
+.rating{
+    color: rgb(255, 255, 255);
 }
 #text{
     flex: 1;

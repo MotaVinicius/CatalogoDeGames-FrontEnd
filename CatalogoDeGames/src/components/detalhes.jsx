@@ -11,6 +11,7 @@ export default function Detalhes(){
     const [image,setImage] = useState('');
     const [ratings,setRatings] = useState(0);
     const [genero,setGenero] = useState('');
+    const [lancamento, setLancamento] = useState(0)
     const {id} = useParams();
     const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ useEffect(()=>{
             setImage(resposta.data.image_url);
             setRatings(resposta.data.ratings);
             setGenero(resposta.data.genero);
+            setLancamento(resposta.data.lancamento);
           }
         else{
             alert("Registro não encontrado para edição.");
@@ -37,8 +39,13 @@ useEffect(()=>{
                 <div id="main">
                     <div id="image">
                         <img src={image} alt="Capa" />
-                        <h3>{genero}</h3>
-                        <h3>{ratings}</h3>
+                        <h3>Gênero: <p className="valor">{genero}</p></h3>
+                        <h3>{ratings === 10 ? (<>Nota:
+                                        <i class="bi bi-star-fill" style={{color: 'gold'}} ></i>&nbsp; <p className="rating"> {ratings}</p>
+                                        </>) : (<>Nota: 
+                                            <i class="bi bi-star-half" style={{color: 'gold'}} ></i>&nbsp; <p className="rating"> {ratings} </p>
+                                            </>) }</h3>
+                        <h3>Ano de lançamento: <p className="valor">{lancamento}</p></h3>
                     </div>
                     <div id="text">
                         <div id="titulo">

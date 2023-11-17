@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../GamesGrid.css';
+import { Link } from 'react-router-dom';
 
 
 export default function FullListagem(){
@@ -32,7 +33,7 @@ export default function FullListagem(){
                                         )}
                                         </Card.Text>
                                         <div className="botoes">
-                                        <Button style={{}} variant="danger">Detalhes</Button>
+                                        <Link to={`/detalhes/${itemfullLista._id}`}><Button style={{}} variant="danger">Detalhes</Button></Link>
                                         <Button style={{}} variant="primary">Adicionar a minha lista</Button>
                                         </div>
                                         
