@@ -1,5 +1,5 @@
 .Countainer{
-   color: brown;
+   color: #a52a2a;
    min-height: 100vh;
    min-width: 98vw;
    display: flex;
@@ -12,18 +12,50 @@
     display: flex;
     align-items: center;
 }
+h1{
+    padding-left: 2vw;
+    padding-top: .7vh;
+}
+span{
+    color: rgb(232, 232, 232);
+}
 #body{
     display: flex;
-    height: 90vh;
+    height: 93vh;
 }
 #content{
     width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 13vw 5vw 0;
+}
+#content h2{
+    color: white;
+
+    font-size: 2.8rem;
+}
+#content p{
+    font-size: 1.3rem;
+}
+#content :nth-child(3){
+   
+}
+#img{
+    display: flex;
+    justify-content: center;
+    padding: 2vh 2vw 0 0;
+}
+#img img{
+    width: 60%;
+    height: 60%;
 }
 .loginForm{
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 3vh;
 
 }
 #usuario, #senha{
@@ -32,32 +64,48 @@
 }
 #usuario label, #senha label{
     font-weight: 600;
+    font-size: 1vw;
 }
 #usuario input, #senha input{
     border: none;
     background-color: transparent;
-    border-bottom: 2px solid black;
+    width: 90%;
+    outline: none;
+    padding-left: .5vw;
 }
 #usuario input::placeholder, #senha input::placeholder{
     color: rgb(167, 167, 167);
+    text-align: center;
+}
+#fieldUser, #fieldSenha{
+    border-bottom: 2px solid black;
+}
+.loginForm{
+    
+    height: 100%;
+}
+#loginHeader h2{
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.672);
 }
 .formulario{
     background-color: brown;
     color: white;
-    width: 70%;
-    height: 70%;
-    padding: 12%;
+    width: 55%;
+    height: 60%;
+    padding: 8% 12%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border-radius: 25px;
+    box-shadow: 0px 0px 20px 1px rgb(212, 212, 212);
 }
 #fields{
     display: flex;
     flex-direction: column;
     gap: 2vh;
-    width: 60%;
+    width: 85%;
 }
 
 button{
@@ -65,7 +113,7 @@ button{
     color: white;
     border: none;
     padding: 4px;
-    width: 60%;
+    width: 85%;
     border-radius: 4px;
 }
 button:hover{
@@ -73,3 +121,17 @@ button:hover{
     color: black;
     transition: background-color 1s, color 1s;
 }
+@media screen and (max-width: 1500px){
+    .formulario{
+        width: 67%;
+        height: 61%;
+        padding: 11%;
+    }
+    #content h2{
+        font-size: 2.1rem;
+    }
+    #content p{
+        font-size: 1.2rem;
+    }
+}
+    
