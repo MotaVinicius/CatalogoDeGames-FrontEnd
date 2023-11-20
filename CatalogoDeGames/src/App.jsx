@@ -4,7 +4,8 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 import { Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Listagem from './components/listagem';
@@ -13,19 +14,20 @@ import Lancamentos from './components/lancamento';
 import FullListagem from './components/fullListagem';
 import Detalhes from './components/detalhes';
 import Login from './components/login';
+import FormularioAdd from './components/formadd';
 
 
 
 function App() {
-  const token = localStorage.getItem("token");
+ /* const token = localStorage.getItem("token");
   if(!token)
-    return <Login />
+    return <Login />*/
 
   return (
      <div className="App">
       <Navbar collapseOnSelect expand="lg" bg="danger" data-bs-theme="dark" id="topo">
       <Container>
-        <Navbar.Brand href="#">Gamezada.gg</Navbar.Brand>
+        <Navbar.Brand style={{cursor:'default'}}>Gamezada.gg</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -37,7 +39,15 @@ function App() {
             </LinkContainer> 
             <LinkContainer to="/fullListagem">
                 <Nav.Link>Catalogo Completo</Nav.Link>
-            </LinkContainer>            
+            </LinkContainer>
+            <NavDropdown title="Opções" id="collapsible-nav-dropdown">
+            <LinkContainer to="/add">
+                <NavDropdown.Item className='drop'>Adicionar</NavDropdown.Item>
+            </LinkContainer>
+            <LinkContainer to="/fullListagem">
+                <NavDropdown.Item className='drop'>Editar</NavDropdown.Item>
+            </LinkContainer>    
+            </NavDropdown>     
           </Nav>
           <Form className="d-flex">
                   <Form.Control
@@ -60,6 +70,7 @@ function App() {
             <Route path="/lancamento" element={<Lancamentos /> }></Route>
             <Route path="/fullListagem" element={<FullListagem /> }></Route>
             <Route path="/detalhes/:id" element={<Detalhes />}></Route>
+            <Route path="/add" element={<FormularioAdd />}></Route>
 
 
         </Routes>

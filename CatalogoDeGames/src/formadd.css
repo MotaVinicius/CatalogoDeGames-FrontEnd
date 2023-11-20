@@ -1,0 +1,17 @@
+#Countainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    min-width: 98vw;
+    flex-direction: column;
+    gap: 5vh;
+}
+#titulo{
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+#formadd{
+    width: 70%;
+}

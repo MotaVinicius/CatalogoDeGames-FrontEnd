@@ -72,6 +72,8 @@ span{
     width: 90%;
     outline: none;
     padding-left: .5vw;
+    color: white;
+    font-size: .9vw;
 }
 #usuario input::placeholder, #senha input::placeholder{
     color: rgb(167, 167, 167);

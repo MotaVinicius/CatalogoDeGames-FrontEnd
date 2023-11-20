@@ -17,7 +17,7 @@ export default function FullListagem(){
             <div className="game-card">
                     {fulllista.map(itemfullLista => {
                         return(
-                            <Card id='fullCard' style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
+                            <Card id='fullCard' style={{ width: '18rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
                                 <Card.Img style={{height:'20rem' }} variant="top" src={itemfullLista.image_url} alt={itemfullLista.name} key={itemfullLista._id} />
                                 <Card.Body  style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column', height:'12rem'}}>
                         
@@ -33,8 +33,8 @@ export default function FullListagem(){
                                         )}
                                         </Card.Text>
                                         <div className="botoes">
-                                        <Link to={`/detalhes/${itemfullLista._id}`}><Button style={{}} variant="danger">Detalhes</Button></Link>
-                                        <Button style={{}} variant="primary">Adicionar a minha lista</Button>
+                                        <Link to={`/detalhes/${itemfullLista._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
+                                        <Button style={{width: '100%'}} variant="primary">Adicionar a minha lista</Button>
                                         </div>
                                         
                             

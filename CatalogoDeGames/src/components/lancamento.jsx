@@ -17,7 +17,7 @@ export default function Lancamentos(){
             <div className="game-card">
                     {lancamento.map(itemLancamento => {
                         return(
-                            <Card id='fullCard' style={{ width: '19rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
+                            <Card id='fullCard' style={{ width: '18rem', height:'32rem', backgroundColor: '#a8a8a851', margin:'2em', color:"white" }}>
                                 <Card.Img style={{height:'20rem' }} variant="top" src={itemLancamento.image_url} alt={itemLancamento.name} key={itemLancamento._id} />
                                 <Card.Body  style={{display: 'flex', justifyContent:'space-evenly', flexDirection:'column', height:'12rem'}}>
                         
@@ -33,8 +33,8 @@ export default function Lancamentos(){
                         )}
                         </Card.Text>
                         <div className="botoes">
-                        <Link to={`/detalhes/${itemLancamento._id}`}><Button style={{}} variant="danger">Detalhes</Button></Link>
-                        <Button style={{}} variant="primary">Adicionar a minha lista</Button>
+                        <Link to={`/detalhes/${itemLancamento._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
+                        <Button style={{width: '100%'}} variant="primary">Adicionar a minha lista</Button>
                         </div>
                         
             
