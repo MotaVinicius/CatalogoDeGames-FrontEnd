@@ -15,6 +15,7 @@ import FullListagem from './components/fullListagem';
 import Detalhes from './components/detalhes';
 import Login from './components/login';
 import FormularioAdd from './components/formadd';
+import FormularioEdit from './components/form.edit';
 
 
 
@@ -43,10 +44,7 @@ function App() {
             <NavDropdown title="Opções" id="collapsible-nav-dropdown">
             <LinkContainer to="/add">
                 <NavDropdown.Item className='drop'>Adicionar</NavDropdown.Item>
-            </LinkContainer>
-            <LinkContainer to="/fullListagem">
-                <NavDropdown.Item className='drop'>Editar</NavDropdown.Item>
-            </LinkContainer>    
+            </LinkContainer> 
             </NavDropdown>     
           </Nav>
           <Form className="d-flex">
@@ -71,6 +69,8 @@ function App() {
             <Route path="/fullListagem" element={<FullListagem /> }></Route>
             <Route path="/detalhes/:id" element={<Detalhes />}></Route>
             <Route path="/add" element={<FormularioAdd />}></Route>
+            <Route path="/editar/:id" element={<FormularioEdit />}></Route>
+            
 
 
         </Routes>

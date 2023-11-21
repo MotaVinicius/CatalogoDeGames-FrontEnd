@@ -11,6 +11,18 @@ export default function Lancamentos(){
     useEffect(() => {
         axios.get('http://localhost:3333/lancamento').then(resposta => setLancamento(resposta.data));
     },[]);
+
+    function handleRemove(event){
+        //se ok, return true; se cancel, return false
+        let confirm = window.confirm('Deseja excluir o registro selecionado?');
+        if(confirm){
+            axios.delete(`http://localhost:3333/remover/${event.target.getAttribute('data-id')}`).then(resposta => {
+                alert(resposta.data.message);
+                listar();
+            });
+        }
+    }
+
     return(
         <div className="page">
             <h2>Lançamentos</h2>
@@ -33,9 +45,12 @@ export default function Lancamentos(){
                         )}
                         </Card.Text>
                         <div className="botoes">
-                        <Link to={`/detalhes/${itemLancamento._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
-                        <Button style={{width: '100%'}} variant="primary">Adicionar a minha lista</Button>
-                        </div>
+                                            <Link to={`/detalhes/${itemLancamento._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
+                                            <div id="editbuttons">
+                                        <Link to={`/editar/${itemLancamento._id}`}><Button id='edit' variant="dark" style={{width: '49.5%', backgroundColor:''}}>Editar &nbsp;<i className="bi bi-pencil-fill"></i></Button></Link>
+                                            <Button id='remove' data-id={itemLancamento._id} onClick={handleRemove} variant="dark" style={{width: '49.5%'}}>Remover &nbsp;<i className="bi bi-trash-fill"></i></Button>
+                                        </div>
+                                        </div>
                         
             
                 </Card.Body>

@@ -61,3 +61,13 @@
     width: 90%;
     padding: 2rem;
 }
+#buttonBack{
+    height: fit-content;
+    width: 12vw;
+    text-decoration: none;
+    position: fixed;
+    top: 5rem;
+}
+#buttonBack i{
+    font-size: 1.5rem;
+}

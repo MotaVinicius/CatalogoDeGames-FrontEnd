@@ -9,9 +9,10 @@ import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
 import '../formadd.css'
+import { useParams } from "react-router-dom";
 
 
-export default function FormularioAdd(){
+export default function FormularioEdit(){
     const navigate = useNavigate();
     const [name,setName] = useState('');
     const [description,setDescription] = useState('');
@@ -19,17 +20,19 @@ export default function FormularioAdd(){
     const [ratings,setRatings] = useState(0);
     const [genero,setGenero] = useState('');
     const [lancamento, setLancamento] = useState(0);
+    const {id} = useParams();
 
-    const { Formik } = formik;
-
-   
-  
     const anoAtual = new Date().getFullYear();
     let anos = [];
     for(let i=anoAtual; i>= 1972; i--)
         anos.push(<option value={i} key={i}>{i}</option>);
 
-    
+    const nota = []
+    for(let i=10; i>=0; i--)
+      nota.push(<option value={i} key={i}>{i}</option>)
+
+
+    const { Formik } = formik;
 
     const schema = yup.object().shape({
     name: yup.string().required(),
@@ -44,10 +47,29 @@ export default function FormularioAdd(){
     function handleSave(event){
         if(name && description && image_url && ratings && genero && lancamento){
             event.preventDefault();
-            axios.post('http://localhost:3333/add',{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
+            axios.put(`http://localhost:3333/editar/${id}`,{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
             navigate('/fullListagem');
-        }
+        } 
     }
+
+    useEffect(()=>{
+      if(id){
+        axios.get(`http://localhost:3333/detalhes/${id}`).then(resposta => {
+          if(resposta.data){
+            setName(resposta.data.name);
+            setDescription(resposta.data.description);
+            setImage_url(resposta.data.image_url);
+            setRatings(resposta.data.ratings);
+            setGenero(resposta.data.genero);
+            setLancamento(resposta.data.lancamento);
+          }else{
+            alert("Registro não encontrado para edição.");
+            navigate('/listar');
+          }
+        })
+      }
+    },[id,navigate])
+
 
     return(
     <div id="Countainer">
@@ -146,22 +168,11 @@ export default function FormularioAdd(){
               controlId="validationFormik105"
               className="position-relative"
             >
-              <Form.Label>Nota</Form.Label>
+              <Form.Label>ratings</Form.Label>
               <Form.Select
                 onChange={(e)=> setRatings(e.target.value)} value={ratings} required
               >
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                
+                <option value="">Selecione a nota</option>{nota}
               </Form.Select>
             </Form.Group>
           </Row>
@@ -191,7 +202,7 @@ export default function FormularioAdd(){
               feedbackTooltip
             />
           </Form.Group>
-          <Button type="submit" variant="danger" onClick={handleSave} style={{width:'100%'}}>Adicionar</Button>
+          <Button type="submit" variant="danger" onClick={handleSave} style={{width:'100%'}}>Salvar</Button>
         </Form>
       )}
     </Formik>

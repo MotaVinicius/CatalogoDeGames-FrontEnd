@@ -18,6 +18,9 @@
    animation: zoom 0.3s ease-in-out;
    animation-fill-mode: forwards;
 }
+#editbuttons{
+  margin-top: 2px;
+}
 @keyframes zoom {
   0%{
     transform: scale(1);
@@ -62,5 +65,13 @@
   }
   Button{
     width: 100%;
-    margin-top: 2px;
+  }
+  #remove:hover{
+    background-color: rgba(255, 0, 0, 0.798);
+  }
+  #edit:hover{
+    background-color: rgba(0, 102, 255, 0.798);
+  }
+  #edit{
+    margin-right: 1%;
   }

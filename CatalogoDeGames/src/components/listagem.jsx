@@ -4,13 +4,26 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../GamesGrid.css';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 export default function Listagem(){
     const [lista , setLista] = useState ([]);
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:3333').then(resposta => setLista(resposta.data));
     },[]);
+
+    function handleRemove(event){
+        //se ok, return true; se cancel, return false
+        let confirm = window.confirm('Deseja excluir o registro selecionado?');
+        if(confirm){
+            axios.delete(`http://localhost:3333/remover/${event.target.getAttribute('data-id')}`).then(resposta => {
+                alert(resposta.data.message);
+                navigate('/fullListagem');
+            });
+        }
+    }
+
     return(
         <div className="page">
             <h2>Melhores Avaliados</h2>
@@ -33,8 +46,11 @@ export default function Listagem(){
                                         )}
                                         </Card.Text>
                                         <div className="botoes">
-                                        <Link to={`/detalhes/${itemLista._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
-                                        <Button style={{width: '100%'}} variant="primary">Adicionar a minha lista</Button>
+                                            <Link to={`/detalhes/${itemLista._id}`}><Button style={{width: '100%'}} variant="danger">Detalhes</Button></Link>
+                                        <div id="editbuttons">
+                                        <Link to={`/editar/${itemLista._id}`}><Button id='edit' variant="dark" style={{width: '49.5%', backgroundColor:''}}>Editar &nbsp;<i className="bi bi-pencil-fill"></i></Button></Link>
+                                            <Button id='remove' data-id={itemLista._id} onClick={handleRemove} variant="dark" style={{width: '49.5%'}}>Remover &nbsp;<i className="bi bi-trash-fill"></i></Button>
+                                        </div>
                                         </div>
                                         
                             

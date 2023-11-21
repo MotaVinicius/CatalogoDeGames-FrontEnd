@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../detalhes.css';
 
+
 export default function Detalhes(){
+    
     //const [lista , setLista] = useState ([]);
     const [name,setName] = useState('');
     const [description,setDescription] = useState('');
@@ -27,7 +29,7 @@ useEffect(()=>{
             setLancamento(resposta.data.lancamento);
           }
         else{
-            alert("Registro não encontrado para edição.");
+            alert("Registro não encontrado.");
             navigate('/listar');
           }
 })}
@@ -54,10 +56,12 @@ useEffect(()=>{
                         <div id="descricao">
                             <p>{description}</p>
                         </div>
-                    </div>
+                    </div> <Link to="/listar" id="buttonBack">
+                    <button><i class="bi bi-arrow-bar-left"></i></button></Link>
                 </div>
                 
+                </div>
             </div>
-        </div>
+        
     )
 }
