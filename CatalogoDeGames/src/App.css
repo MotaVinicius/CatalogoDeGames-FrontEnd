@@ -32,3 +32,19 @@
     bottom: 10px;
   }
 }
+a>i{
+  color: #000000;
+}
+
+.navbar-text a{ text-decoration: none;}
+.navbar-text i{ 
+  padding-left: 0.5vw;
+  color: white;
+  opacity: 0.8;
+  font-size: 1.05rem;
+}
+.navbar-text i:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+

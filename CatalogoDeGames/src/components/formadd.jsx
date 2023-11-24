@@ -29,6 +29,10 @@ export default function FormularioAdd(){
     for(let i=anoAtual; i>= 1972; i--)
         anos.push(<option value={i} key={i}>{i}</option>);
 
+    const nota = []
+    for(let i=10; i>=0; i--)
+      nota.push(<option value={i} key={i}>{i}</option>)
+
     
 
     const schema = yup.object().shape({
@@ -46,6 +50,8 @@ export default function FormularioAdd(){
             event.preventDefault();
             axios.post('http://localhost:3333/add',{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
             navigate('/fullListagem');
+        } else {
+          alert('Preencha todos os campos corretamente.')
         }
     }
 
@@ -150,25 +156,14 @@ export default function FormularioAdd(){
               <Form.Select
                 onChange={(e)=> setRatings(e.target.value)} value={ratings} required
               >
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                
+                <option value="">Selecione a nota</option>{nota}
               </Form.Select>
             </Form.Group>
           </Row>
           <Form.Group className="position-relative mb-3">
-            <Form.Label>Capa (imagem)</Form.Label>
+            <Form.Label>Capa (Url da imagem)</Form.Label>
             <Form.Control
-              type="file"
+              type="text"
               required
               name="image_url"
               onChange={(e)=> setImage_url(e.target.value)}

@@ -49,7 +49,9 @@ export default function FormularioEdit(){
             event.preventDefault();
             axios.put(`http://localhost:3333/editar/${id}`,{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
             navigate('/fullListagem');
-        } 
+        } else {
+          alert('Preencha os campos corretamente.')
+        }
     }
 
     useEffect(()=>{
@@ -177,10 +179,11 @@ export default function FormularioEdit(){
             </Form.Group>
           </Row>
           <Form.Group className="position-relative mb-3">
-            <Form.Label>Capa (imagem)</Form.Label>
+            <Form.Label>Capa (Url da imagem)</Form.Label>
             <Form.Control
-              type="file"
+              type="text"
               required
+              value={image_url}
               name="image_url"
               onChange={(e)=> setImage_url(e.target.value)}
               
@@ -195,7 +198,6 @@ export default function FormularioEdit(){
               name="terms"
               label="Afirmo estar de acordo com os termos e condições de uso."
               onChange={handleChange}
-              
               feedback={errors.terms}
               feedbackType="invalid"
               id="validationFormik106"

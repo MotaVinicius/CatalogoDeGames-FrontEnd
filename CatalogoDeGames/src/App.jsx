@@ -16,13 +16,26 @@ import Detalhes from './components/detalhes';
 import Login from './components/login';
 import FormularioAdd from './components/formadd';
 import FormularioEdit from './components/form.edit';
+import axios from 'axios';
 
 
 
 function App() {
- /* const token = localStorage.getItem("token");
-  if(!token)
-    return <Login />*/
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
+
+  function handleLogout(){
+    axios.post("http://localhost:3000/logout",{token: token},{withCredentials: true}).then(resposta => {
+      if(resposta.status == 200){
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.reload();
+      }
+    })
+  }
+
+  if(!token || !user)
+    return <Login />
 
   return (
      <div className="App">
@@ -47,15 +60,18 @@ function App() {
             </LinkContainer> 
             </NavDropdown>     
           </Nav>
-          <Form className="d-flex">
+          <Navbar.Text>
+            <a href="#login">Olá, {user}</a><i className="bi bi-box-arrow-right" title='Sair' onClick={handleLogout}></i>
+          </Navbar.Text>
+         {/* <Form className="d-flex">
                   <Form.Control
                     type="search"
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button id='botao' variant="outline-success"><i class="fa-solid fa-magnifying-glass"></i></Button>
-                  </Form>
+                  /<Button id='botao' variant="outline-success"><i class="fa-solid fa-magnifying-glass"></i></Button>
+  </Form>*/}
         </Navbar.Collapse>
       </Container>
     </Navbar>

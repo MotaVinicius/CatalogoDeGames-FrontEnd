@@ -56,8 +56,7 @@ useEffect(()=>{
                         <div id="descricao">
                             <p>{description}</p>
                         </div>
-                    </div> <Link to="/listar" id="buttonBack">
-                    <button><i class="bi bi-arrow-bar-left"></i></button></Link>
+                    </div> 
                 </div>
                 
                 </div>

@@ -1,9 +1,32 @@
 import { Form } from 'react-bootstrap';
+import axios from "axios";
 import '../login.css';
 import imagem from "./../image/game.svg"
+import { useState } from 'react';
+
 
 
 export default function Login(){
+
+    const [login,setLogin] = useState('');
+    const [senha,setSenha] = useState('');
+
+    function handleLogin(event){
+        if(login && senha){
+            event.preventDefault();
+            axios.post('http://localhost:3000/login',{login: login, senha: senha},{withCredentials: true}).then(resposta => {
+                if(resposta.data.token){
+                    localStorage.setItem("token",resposta.data.token);
+                    localStorage.setItem("user", resposta.data.user);
+                    window.location.reload();
+                }else{
+                    alert(resposta.data.message);
+                }
+            })
+        }
+    }
+
+
     return (
         <div className="Countainer">
             <div className="topBar">
@@ -26,17 +49,17 @@ export default function Login(){
                         <div id="usuario">
                             <label>Usuario:</label>
                             <div id="fieldUser">
-                            <i class="fa-solid fa-user"></i><input type="text" placeholder='Nome de usuario'/>
+                            <i class="fa-solid fa-user"></i><input onChange={(e)=> setLogin(e.target.value)} required type="text" placeholder='Nome de usuario'/>
                             </div>
                         </div>
                         <div id="senha">
                             <label>Senha:</label>
                             <div id="fieldSenha">
-                            <i class="fa-solid fa-key"></i><input type="password" placeholder='Digite sua senha'/>
+                            <i class="fa-solid fa-key"></i><input onChange={(e)=> setSenha(e.target.value)} required type="password" placeholder='Digite sua senha'/>
                             </div>
                         </div>
                     </div>
-                    <button>Entrar</button>         
+                    <button onClick={handleLogin}>Entrar</button>         
                 </Form>
                 </div>
             </div>
