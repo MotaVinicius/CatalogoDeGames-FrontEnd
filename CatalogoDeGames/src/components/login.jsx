@@ -3,11 +3,12 @@ import axios from "axios";
 import '../login.css';
 import imagem from "./../image/game.svg"
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 export default function Login(){
-
+    const navigate = useNavigate();
     const [login,setLogin] = useState('');
     const [senha,setSenha] = useState('');
 
@@ -49,17 +50,18 @@ export default function Login(){
                         <div id="usuario">
                             <label>Usuario:</label>
                             <div id="fieldUser">
-                            <i class="fa-solid fa-user"></i><input onChange={(e)=> setLogin(e.target.value)} required type="text" placeholder='Nome de usuario'/>
+                            <i class="fa-solid fa-user"></i><input onChange={(e)=> setLogin(e.target.value)} type="text" placeholder='Nome de usuario'/>
                             </div>
                         </div>
                         <div id="senha">
                             <label>Senha:</label>
                             <div id="fieldSenha">
-                            <i class="fa-solid fa-key"></i><input onChange={(e)=> setSenha(e.target.value)} required type="password" placeholder='Digite sua senha'/>
+                            <i class="fa-solid fa-key"></i><input onChange={(e)=> setSenha(e.target.value)} type="password" placeholder='Digite sua senha'/>
                             </div>
                         </div>
                     </div>
-                    <button onClick={handleLogin}>Entrar</button>         
+                    <button onClick={handleLogin}>Entrar</button>
+                    <button onClick={() => navigate('/addUser')} style={{ textDecoration: 'none' }}>Não possui uma conta ? Crie aqui</button>
                 </Form>
                 </div>
             </div>

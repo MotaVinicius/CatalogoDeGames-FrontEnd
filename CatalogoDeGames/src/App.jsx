@@ -17,6 +17,8 @@ import Login from './components/login';
 import FormularioAdd from './components/formadd';
 import FormularioEdit from './components/form.edit';
 import axios from 'axios';
+import CriarConta from './components/criarconta';
+
 
 
 
@@ -33,9 +35,13 @@ function App() {
       }
     })
   }
+  
+  const isPublicPage = window.location.pathname === "/addUser";
 
-  if(!token || !user)
-    return <Login />
+  if(!token || !user){
+    if(!isPublicPage)
+      return <Login /> 
+  }
 
   return (
      <div className="App">
@@ -84,6 +90,7 @@ function App() {
             <Route path="/lancamento" element={<Lancamentos /> }></Route>
             <Route path="/fullListagem" element={<FullListagem /> }></Route>
             <Route path="/detalhes/:id" element={<Detalhes />}></Route>
+            <Route path="/addUser" element={<CriarConta />}></Route>
             <Route path="/add" element={<FormularioAdd />}></Route>
             <Route path="/editar/:id" element={<FormularioEdit />}></Route>
             

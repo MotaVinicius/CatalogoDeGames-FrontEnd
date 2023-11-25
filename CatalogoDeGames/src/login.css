@@ -58,15 +58,15 @@ span{
     padding-top: 3vh;
 
 }
-#usuario, #senha{
+#nome, #usuario, #senha, #confirmarSenha{
     display: flex;
     flex-direction: column;
 }
-#usuario label, #senha label{
+#usuario label, #senha label, #nome label, #confirmarSenha label{
     font-weight: 600;
     font-size: 1vw;
 }
-#usuario input, #senha input{
+#usuario input, #senha input, #confirmarSenha input, #nome input{
     border: none;
     background-color: transparent;
     width: 90%;
@@ -75,11 +75,11 @@ span{
     color: white;
     font-size: .9vw;
 }
-#usuario input::placeholder, #senha input::placeholder{
+#usuario input::placeholder, #senha input::placeholder #confirmarSenha::placeholder, #nome::placeholder{
     color: rgb(167, 167, 167);
     text-align: center;
 }
-#fieldUser, #fieldSenha{
+#fieldUser, #fieldSenha, #fieldConfirmar, #fieldNome{
     border-bottom: 2px solid black;
 }
 .loginForm{
@@ -122,6 +122,14 @@ button:hover{
     background-color: white;
     color: black;
     transition: background-color 1s, color 1s;
+}
+#criar{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1.05rem;
+}
+#criar:hover{
+    text-decoration-line: underline;
 }
 @media screen and (max-width: 1500px){
     .formulario{
