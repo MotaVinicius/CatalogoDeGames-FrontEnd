@@ -15,7 +15,7 @@ export default function Login(){
     function handleLogin(event){
         if(login && senha){
             event.preventDefault();
-            axios.post('http://localhost:3000/login',{login: login, senha: senha},{withCredentials: true}).then(resposta => {
+            axios.post('http://18.230.17.49:4000/login',{login: login, senha: senha},{withCredentials: true}).then(resposta => {
                 if(resposta.data.token){
                     localStorage.setItem("token",resposta.data.token);
                     localStorage.setItem("user", resposta.data.user);

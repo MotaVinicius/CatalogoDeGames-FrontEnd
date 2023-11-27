@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom';
 export default function Lancamentos(){
     const [lancamento , setLancamento] = useState ([]);
     useEffect(() => {
-        axios.get('http://localhost:3333/lancamento').then(resposta => setLancamento(resposta.data));
+        axios.get('http://18.230.17.49:3333/lancamento').then(resposta => setLancamento(resposta.data));
     },[]);
 
     function handleRemove(event){
         //se ok, return true; se cancel, return false
         let confirm = window.confirm('Deseja excluir o registro selecionado?');
         if(confirm){
-            axios.delete(`http://localhost:3333/remover/${event.target.getAttribute('data-id')}`).then(resposta => {
+            axios.delete(`http://18.230.17.49:3333/remover/${event.target.getAttribute('data-id')}`).then(resposta => {
                 alert(resposta.data.message);
                 listar();
             });

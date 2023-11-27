@@ -27,7 +27,7 @@ function App() {
   const user = localStorage.getItem("user");
 
   function handleLogout(){
-    axios.post("http://localhost:3000/logout",{token: token},{withCredentials: true}).then(resposta => {
+    axios.post("http://18.230.17.49:4000/logout",{token: token},{withCredentials: true}).then(resposta => {
       if(resposta.status == 200){
         localStorage.removeItem('token');
         localStorage.removeItem('user');

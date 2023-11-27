@@ -48,7 +48,7 @@ export default function FormularioAdd(){
     function handleSave(event){
         if(name && description && image_url && ratings && genero && lancamento){
             event.preventDefault();
-            axios.post('http://localhost:3333/add',{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
+            axios.post('http://18.230.17.49:3333/add',{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
             navigate('/fullListagem');
         } else {
           alert('Preencha todos os campos corretamente.')

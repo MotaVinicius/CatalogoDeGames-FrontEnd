@@ -19,7 +19,7 @@ function handleCreate(event){
     if(login && senha && nome){
         if(senha1.value == senha2.value){
             event.preventDefault();
-            axios.post('http://localhost:3000/addUser',{login: login, senha: senha, nome: nome}).then((resposta)=>alert(resposta.data.message));
+            axios.post('http://18.230.17.49:4000/addUser',{login: login, senha: senha, nome: nome}).then((resposta)=>alert(resposta.data.message));
             Navigate('/login')
         } else {
             alert('Senhas nao conferem.')

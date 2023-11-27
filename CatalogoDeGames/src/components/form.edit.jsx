@@ -47,7 +47,7 @@ export default function FormularioEdit(){
     function handleSave(event){
         if(name && description && image_url && ratings && genero && lancamento){
             event.preventDefault();
-            axios.put(`http://localhost:3333/editar/${id}`,{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
+            axios.put(`http://18.230.17.49:3333/editar/${id}`,{'name': name,'description': description,'image_url': image_url,'genero': genero,'ratings': ratings,'lancamento': lancamento}).then((resposta)=>alert(resposta.data.message));
             navigate('/fullListagem');
         } else {
           alert('Preencha os campos corretamente.')
@@ -56,7 +56,7 @@ export default function FormularioEdit(){
 
     useEffect(()=>{
       if(id){
-        axios.get(`http://localhost:3333/detalhes/${id}`).then(resposta => {
+        axios.get(`http://18.230.17.49:3333/detalhes/${id}`).then(resposta => {
           if(resposta.data){
             setName(resposta.data.name);
             setDescription(resposta.data.description);

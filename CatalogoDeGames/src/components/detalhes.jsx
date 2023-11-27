@@ -19,7 +19,7 @@ export default function Detalhes(){
 
 useEffect(()=>{
     if(id){
-        axios.get(`http://localhost:3333/detalhes/${id}`).then(resposta => {
+        axios.get(`http://18.230.17.49:3333/detalhes/${id}`).then(resposta => {
           if(resposta.data){
             setName(resposta.data.name);
             setDescription(resposta.data.description);
