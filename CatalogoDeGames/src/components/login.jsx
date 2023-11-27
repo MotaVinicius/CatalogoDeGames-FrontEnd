@@ -61,7 +61,7 @@ export default function Login(){
                         </div>
                     </div>
                     <button onClick={handleLogin}>Entrar</button>
-                    <button onClick={() => navigate('/addUser')} style={{ textDecoration: 'none' }}>Não possui uma conta ? Crie aqui</button>
+                    <button id='bt2' onClick={() => navigate('/addUser')} style={{}}>Crie sua conta</button>
                 </Form>
                 </div>
             </div>
