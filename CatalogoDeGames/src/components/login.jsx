@@ -4,6 +4,7 @@ import '../login.css';
 import imagem from "./../image/game.svg"
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import CriarConta from './criarconta';
 
 
 
@@ -19,7 +20,9 @@ export default function Login(){
                 if(resposta.data.token){
                     localStorage.setItem("token",resposta.data.token);
                     localStorage.setItem("user", resposta.data.user);
+                    navigate('/listar')
                     window.location.reload();
+                    
                 }else{
                     alert(resposta.data.message);
                 }
@@ -27,8 +30,15 @@ export default function Login(){
         }
     }
 
+    const isPublicPage = window.location.pathname === "/addUser";
 
     return (
+        <>
+         {isPublicPage ? (
+            <CriarConta />
+        ) : (
+            
+       
         <div className="Countainer">
             <div className="topBar">
                 <h1><span>G</span>ame<span>Z</span>ada</h1>
@@ -66,5 +76,8 @@ export default function Login(){
                 </div>
             </div>
         </div>
+        
+        )}
+        </>
     )
 }

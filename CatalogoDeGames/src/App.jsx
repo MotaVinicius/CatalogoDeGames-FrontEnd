@@ -36,10 +36,8 @@ function App() {
     })
   }
   
-  const isPublicPage = window.location.pathname === "/addUser";
 
   if(!token || !user){
-    if(!isPublicPage)
       return <Login /> 
   }
 

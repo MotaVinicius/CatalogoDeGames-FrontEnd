@@ -3,12 +3,13 @@ import { Form } from 'react-bootstrap';
 import axios from "axios";
 import '../login.css';
 import imagem from "./../image/game.svg"
+import { useNavigate } from "react-router-dom";
 
 
 
 
 export default function CriarConta(){
-    
+    const navigate = useNavigate();
     const [login,setLogin] = useState('');
     const [senha,setSenha] = useState('');
     const [nome,setNome] = useState('');
@@ -20,7 +21,7 @@ function handleCreate(event){
         if(senha1.value == senha2.value){
             event.preventDefault();
             axios.post('http://18.230.17.49:4000/addUser',{login: login, senha: senha, nome: nome}).then((resposta)=>alert(resposta.data.message));
-            Navigate('/login')
+            navigate('/login')
         } else {
             alert('Senhas nao conferem.')
         }
